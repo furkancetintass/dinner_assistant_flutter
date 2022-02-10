@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "501679427573",
+    "project_id": "dinner-assistant-84b29",
+    "storage_bucket": "dinner-assistant-84b29.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:501679427573:android:32cba752120ce3230b5abc",
+        "android_client_info": {
+          "package_name": "com.example.dinner_assistant_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "501679427573-md4jmvk28j4epe27sv40cnplu9j7r69j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPdZjJdWD-Mj3PlR7JI-s2_u6IIUZqllw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "501679427573-md4jmvk28j4epe27sv40cnplu9j7r69j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
