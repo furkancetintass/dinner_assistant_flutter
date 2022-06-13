@@ -21,8 +21,8 @@ class AuthService with ChangeNotifier implements AuthInterface {
   signUp(String email, String password) async {
     userCredential = ApiResponse.loading('');
     try {
-      final result = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: email, password: password);
+      final result = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: email.trimRight(), password: password);
 
       userCredential = ApiResponse.completed(result);
     } on FirebaseAuthException catch (e) {

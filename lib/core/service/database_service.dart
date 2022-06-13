@@ -12,19 +12,21 @@ class Database {
 
   DateTime dateTime = DateTime.now();
 
-  Future<void> createUser(String email, String firstName,String lastName,String userId) async {
-
+  Future<void> createUser(
+      String email, String firstName, String lastName, String userId) async {
     databaseReference.child("users").child(userId).set({
       "email": email,
       "firstName": firstName,
-      "lastName":lastName,
+      "lastName": lastName,
       "platform": Platform.isAndroid ? "Android" : "IOS",
       "id": userId,
     });
   }
 
-  Future<bool> createTask(String userId, String? title, String content, String type) async {
-    String taskId = databaseReference.child("tasks").child(userId).child(type).push().key;
+  Future<bool> createTask(
+      String userId, String? title, String content, String type) async {
+    String taskId =
+        databaseReference.child("tasks").child(userId).child(type).push().key;
     try {
       await databaseReference
           .child("tasks")
@@ -39,9 +41,42 @@ class Database {
     }
   }
 
-  Future<bool> deleteTask(String type, String taskId,String userId) async {
+  Future<bool> createRecipe(
+    String userId,
+    String title,
+    String making,
+    String requirements,
+    String type,
+  ) async {
+    String recipeId =
+        databaseReference.child("user-recipes").child(userId).push().key;
     try {
-      await databaseReference.child("tasks").child(userId).child(type).child(taskId).remove();
+      await databaseReference
+          .child("user-recipes")
+          .child(userId)
+          .child(recipeId)
+          .set({
+        "title": title,
+        "making": making,
+        "requirements": requirements,
+        "type": type,
+        "recipeId": recipeId,
+      });
+      return true;
+    } catch (e) {
+      debugPrint('create recipe fonk hata');
+      return false;
+    }
+  }
+
+  Future<bool> deleteTask(String type, String taskId, String userId) async {
+    try {
+      await databaseReference
+          .child("tasks")
+          .child(userId)
+          .child(type)
+          .child(taskId)
+          .remove();
 
       return true;
     } catch (e) {
